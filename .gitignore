@@ -6,3 +6,5 @@ coverage/
 *.tsbuildinfo
 *.tgz
 .env
+.mcpregistry_registry_token
+.mcpregistry_github_token

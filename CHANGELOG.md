@@ -27,6 +27,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Docker image rebuilds `better-sqlite3` in both stages for runtime compatibility
 - Vendored Zod removed in favor of the npm dependency to avoid duplicated publish output
 
+## [1.0.2] - 2026-04-08
+
+### Fixed
+
+- npm runtime dependencies now align with the current source release (`@modelcontextprotocol/sdk@1.29.0`, `better-sqlite3@12.8.0`)
+- Resolved Node 24 installation failures from the previously published 1.0.1 artifact
+
 ## [1.0.1] - 2026-04-07
 
 ### Added

@@ -84,6 +84,12 @@ flowchart TD
 npx -y mcp-infra-lens
 ```
 
+If you are pinned to `1.0.1`, upgrade to `1.0.2` or newer to avoid Node 24 native install failures:
+
+```bash
+npx -y mcp-infra-lens@latest
+```
+
 ### 2. Claude Desktop
 
 Published package:
