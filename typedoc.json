@@ -1,0 +1,24 @@
+{
+  "entryPoints": [
+    "src/mcp.ts",
+    "src/analyzer.ts",
+    "src/baseline.ts",
+    "src/collector.ts",
+    "src/types.ts"
+  ],
+  "entryPointStrategy": "resolve",
+  "out": "docs/api",
+  "plugin": ["typedoc-plugin-markdown"],
+  "readme": "none",
+  "name": "mcp-infra-lens",
+  "includeVersion": true,
+  "skipErrorChecking": false,
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeInternal": true,
+  "excludeExternals": true,
+  "cleanOutputDir": true,
+  "githubPages": false,
+  "hideGenerator": true,
+  "sort": ["source-order"]
+}

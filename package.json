@@ -1,0 +1,102 @@
+{
+  "name": "mcp-infra-lens",
+  "version": "1.0.1",
+  "mcpName": "io.github.oaslananka/mcp-infra-lens",
+  "description": "MCP server that connects to Linux servers over SSH, collects live metrics, builds statistical baselines, detects anomalies with z-score analysis, and explains infrastructure health in plain English",
+  "homepage": "https://github.com/oaslananka/mcp-infra-lens",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oaslananka/mcp-infra-lens.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oaslananka/mcp-infra-lens/issues"
+  },
+  "type": "module",
+  "main": "dist/mcp.js",
+  "exports": {
+    ".": {
+      "import": "./dist/mcp.js",
+      "types": "./dist/mcp.d.ts"
+    },
+    "./http": {
+      "import": "./dist/server-http.js",
+      "types": "./dist/server-http.d.ts"
+    }
+  },
+  "bin": {
+    "mcp-infra-lens": "dist/mcp.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "mcp.json",
+    "server.json",
+    "docs"
+  ],
+  "scripts": {
+    "build": "node --eval \"require('node:fs').rmSync('dist',{ recursive: true, force: true })\" && tsc -p tsconfig.json",
+    "start": "node dist/mcp.js",
+    "start:http": "node dist/server-http.js",
+    "dev": "node --loader ts-node/esm src/mcp.ts",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "tsc --noEmit && eslint \"src/**/*.ts\" \"test/**/*.ts\" && prettier --check \"src/**/*.ts\" \"test/**/*.ts\"",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --testPathPattern=unit",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --coverage --testPathPattern=\"(unit|integration)\"",
+    "test:integration": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --testPathPattern=integration",
+    "test:e2e": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --testPathPattern=e2e",
+    "test:ci": "npm run test:coverage",
+    "prepare": "npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "infrastructure",
+    "monitoring",
+    "anomaly-detection",
+    "ssh",
+    "devops",
+    "sre",
+    "observability",
+    "ai",
+    "claude",
+    "linux",
+    "metrics",
+    "baseline",
+    "z-score"
+  ],
+  "author": "Osman Aslan <oaslananka@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "better-sqlite3": "12.8.0",
+    "simple-statistics": "7.8.3",
+    "ssh2": "1.15.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/better-sqlite3": "7.6.8",
+    "@types/jest": "29.5.12",
+    "@types/node": "22.19.17",
+    "@types/ssh2": "1.11.19",
+    "@typescript-eslint/eslint-plugin": "8.58.1",
+    "@typescript-eslint/parser": "8.58.1",
+    "eslint": "9.39.4",
+    "globals": "17.4.0",
+    "jest": "29.7.0",
+    "jest-junit": "16.0.0",
+    "prettier": "3.3.0",
+    "ts-jest": "29.1.4",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3"
+  }
+}

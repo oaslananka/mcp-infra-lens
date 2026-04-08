@@ -1,0 +1,8 @@
+services:
+  ssh-fixture:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: mcp-infra-lens-ssh-fixture
+    ports:
+      - '2222:2222'

@@ -1,0 +1,23 @@
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+      coreutils \
+      gawk \
+      hostname \
+      openssh-server \
+      procps \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN useradd -m -s /bin/bash testuser \
+    && echo 'testuser:testpass' | chpasswd \
+    && mkdir -p /var/run/sshd \
+    && sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config \
+    && sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config \
+    && printf '\nPort 2222\nUsePAM no\nX11Forwarding no\nAllowUsers testuser\n' >> /etc/ssh/sshd_config
+
+EXPOSE 2222
+
+CMD ["/usr/sbin/sshd", "-D", "-e"]

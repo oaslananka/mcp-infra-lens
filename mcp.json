@@ -1,0 +1,50 @@
+{
+  "name": "mcp-infra-lens",
+  "version": "1.0.1",
+  "description": "Connect to Linux servers over SSH. Collect live metrics, detect anomalies with z-score analysis against recorded baselines, and get plain-English explanations of what is wrong and why.",
+  "homepage": "https://github.com/oaslananka/mcp-infra-lens",
+  "repository": "https://github.com/oaslananka/mcp-infra-lens",
+  "license": "MIT",
+  "tags": ["infrastructure", "monitoring", "ssh", "devops", "sre", "anomaly-detection"],
+  "transport": ["stdio", "http"],
+  "runtimes": ["node"],
+  "node_version": ">=20",
+  "install": {
+    "npx": "npx -y mcp-infra-lens",
+    "npm": "npm install -g mcp-infra-lens"
+  },
+  "mcpServers": {
+    "infra-lens": {
+      "command": "npx",
+      "args": ["-y", "mcp-infra-lens"],
+      "env": {
+        "INFRA_LENS_DB": {
+          "description": "Path to SQLite database for metric history",
+          "default": "~/.mcp-infra-lens/metrics.db"
+        }
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "analyze_server",
+      "description": "Collect metrics from a Linux server over SSH and explain anomalies in plain English"
+    },
+    {
+      "name": "snapshot",
+      "description": "Take a metric snapshot without analysis"
+    },
+    {
+      "name": "record_baseline",
+      "description": "Record current metrics as a named baseline for accurate anomaly detection"
+    },
+    {
+      "name": "compare_to_baseline",
+      "description": "Compare current state to a saved baseline and explain the differences"
+    },
+    {
+      "name": "get_history",
+      "description": "Return historical CPU, memory, or load data for a host"
+    }
+  ]
+}

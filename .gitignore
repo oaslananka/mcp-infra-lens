@@ -1,0 +1,8 @@
+node_modules/
+dist/
+coverage/
+.mcp-infra-lens/
+*.log
+*.tsbuildinfo
+*.tgz
+.env

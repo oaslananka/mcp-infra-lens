@@ -1,0 +1,21 @@
+# CODEOWNERS — mcp-infra-lens
+# GitHub automatically requests review from these owners on every PR.
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything
+* @oaslananka
+
+# Statistical analysis — algorithm changes need careful review
+src/analyzer.ts      @oaslananka
+src/baseline.ts      @oaslananka
+
+# SSH & credential handling — security-sensitive
+src/ssh.ts           @oaslananka
+src/collector.ts     @oaslananka
+
+# Database schema changes
+src/db.ts            @oaslananka
+
+# CI/CD pipeline changes
+.azure/              @oaslananka
+azure-pipelines.yml  @oaslananka

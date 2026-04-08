@@ -1,0 +1,16 @@
+src/
+test/
+.github/
+.azure/
+coverage/
+node_modules/
+*.log
+.nvmrc
+.node-version
+.prettierrc
+.prettierignore
+azure-pipelines.yml
+Dockerfile
+jest.config.cjs
+.eslintrc.cjs
+tsconfig.json
