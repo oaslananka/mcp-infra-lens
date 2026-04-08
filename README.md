@@ -7,7 +7,7 @@ Explain Linux incidents over SSH with baseline-aware MCP tooling.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Node 20+](https://img.shields.io/badge/node-20%2B-339933.svg)](https://nodejs.org/)
 [![MCP SDK](https://img.shields.io/badge/MCP%20SDK-1.29.0-6f42c1.svg)](https://www.npmjs.com/package/@modelcontextprotocol/sdk)
-[![Azure Pipelines](https://dev.azure.com/oaslananka/mcp-infra-lens/_apis/build/status/mcp-infra-lens?branchName=main)](https://dev.azure.com/oaslananka/mcp-infra-lens/_build)
+[![Azure Pipelines](https://dev.azure.com/oaslananka/open-source/_apis/build/status/61?branchName=main)](https://dev.azure.com/oaslananka/open-source/_build?definitionId=61)
 
 ## Demo
 
