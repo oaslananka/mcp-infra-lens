@@ -20,6 +20,16 @@ npm test
 
 For release decisions, npm publishing, and MCP Registry version alignment, see [RELEASE_POLICY.md](./RELEASE_POLICY.md).
 
+## AI agent files
+
+This repository includes agent-specific guidance files for common coding assistants:
+
+- `AGENTS.md` for Codex and AGENTS-aware agents
+- `CLAUDE.md` for Claude Code workflows
+- `GEMINI.md` for Gemini CLI workflows
+- `.github/copilot-instructions.md` for GitHub Copilot
+- `.agent/rules/repository.md` for Antigravity-style agent sessions
+
 ## Code style
 
 - TypeScript strict mode. All `any` is banned.

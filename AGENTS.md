@@ -1,5 +1,7 @@
 # AGENTS.md
 
+Canonical repository instructions for Codex and other AGENTS.md-aware coding agents.
+
 ## Tool usage guide
 
 ### `analyze_server`
@@ -45,3 +47,12 @@ Use it to answer trend questions and to separate default incident snapshots from
 - Host key verification is permissive in v1. Use only on trusted networks and prefer bastions or private subnets.
 - The HTTP transport has no built-in authentication. Bind to loopback and place it behind an authenticated reverse proxy for any shared environment.
 - SSH credentials are redacted from structured logs and are never stored in SQLite.
+
+## Working rules
+
+- Keep the current MCP tool surface unchanged unless a task explicitly asks for a new tool.
+- Preserve stdio protocol safety: do not write user-facing protocol data to stdout outside MCP responses.
+- Route operational logging through the existing structured logger and keep secrets redacted.
+- Prefer Node 20 compatibility for shipped behavior and publishing, even though CI also validates Node 22.
+- Before wrapping up code changes, run `npm run lint`, `npm run test:coverage`, and `npm run build`. Run `npm run test:e2e` when Docker-backed SSH verification is relevant.
+- Follow `RELEASE_POLICY.md` for npm and MCP Registry version decisions.

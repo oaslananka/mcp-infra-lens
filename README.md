@@ -255,6 +255,7 @@ Contributions are welcome. Start with [CONTRIBUTING.md](./CONTRIBUTING.md), then
 - [docs/architecture.md](./docs/architecture.md) for the component map
 - [docs/testing.md](./docs/testing.md) for local validation and publish checks
 - [RELEASE_POLICY.md](./RELEASE_POLICY.md) for npm and MCP Registry versioning rules
+- `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`, and `.agent/rules/repository.md` for repository-specific AI coding guidance
 
 ## Operational / CI Notes
 
