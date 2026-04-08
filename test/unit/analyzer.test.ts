@@ -1,5 +1,5 @@
-import { describe, expect, it, beforeAll, beforeEach, afterEach, afterAll } from '@jest/globals';
-import { existsSync, mkdirSync, rmSync } from 'node:fs';
+import { describe, expect, it, beforeEach, afterEach, afterAll } from '@jest/globals';
+import { existsSync, mkdtempSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
@@ -8,7 +8,7 @@ import { saveSnapshot } from '../../src/baseline.js';
 import { closeAllDatabases } from '../../src/db.js';
 import { DEFAULT_THRESHOLDS, type Anomaly, type MetricSnapshot } from '../../src/types.js';
 
-const TEST_ROOT = join(tmpdir(), 'mcp-infra-lens-tests');
+const TEST_ROOT = mkdtempSync(join(tmpdir(), 'mcp-infra-lens-analyzer-'));
 
 const makeSnapshot = (overrides: Partial<MetricSnapshot> = {}): MetricSnapshot => ({
   timestamp: Date.now(),
@@ -27,10 +27,6 @@ const makeSnapshot = (overrides: Partial<MetricSnapshot> = {}): MetricSnapshot =
   processes: [{ pid: 100, name: 'nginx', cpu_percent: 2, mem_percent: 1, command: 'nginx' }],
   os: { hostname: 'test', uptime_seconds: 86400, kernel: '5.15', distro: 'Ubuntu 22.04' },
   ...overrides
-});
-
-beforeAll(() => {
-  mkdirSync(TEST_ROOT, { recursive: true });
 });
 
 beforeEach(() => {
